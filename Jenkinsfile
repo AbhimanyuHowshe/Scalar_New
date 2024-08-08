@@ -1,6 +1,6 @@
 pipeline {
     agent {label 'linux_slave2'}
- environment {
+  tools{
         // Declare tool installations
                 maven 'mymaven'
                 jdk 'myjdk'
