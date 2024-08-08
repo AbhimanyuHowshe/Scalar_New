@@ -1,9 +1,11 @@
 pipeline {
     agent {label 'linux_slave2'}
- tools {
-        maven 'apache-maven-3.0.1' 
-         jdk 'jdk-17' 
-    }    parameters {
+ environment {
+        // Declare tool installations
+        MAVEN_HOME = tool name: 'apache-maven-3.0.1', type: 'maven'
+        JDK_HOME = tool name: 'jdk-17', type: 'jdk'
+    }
+      parameters {
                 string(name: 'ENV', defaultValue: 'DEV', description: 'COMPILER ENV?')
                         booleanParam(name: 'EXECUTETEST', defaultValue: true, description: 'EXECUTE this value')
                                 choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
