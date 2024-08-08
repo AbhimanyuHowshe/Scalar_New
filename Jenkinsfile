@@ -4,7 +4,7 @@ pipeline {
                 string(name: 'ENV', defaultValue: 'DEV', description: 'COMPILER ENV?')
                         booleanParam(name: 'EXECUTETEST', defaultValue: true, description: 'EXECUTE this value')
                                 choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-        choice(name: 'APPVERSION', choices: ['1.1', '1.2, '1.3'], description: 'Pick something')
+        choice(name: 'APPVERSION', choices: ['1.1', '1.2', '1.3'], description: 'Pick something')
 
 
 
