@@ -2,7 +2,8 @@ pipeline {
     agent {label 'linux_slave2'}
  environment {
         // Declare tool installations
-        MAVEN_HOME = tool name: 'apache-maven-3.0.1', type: 'maven'
+                maven 'apache-maven-3.8.4'
+
         JDK_HOME = tool name: 'jdk-17', type: 'jdk'
     }
       parameters {
