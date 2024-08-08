@@ -3,8 +3,7 @@ pipeline {
     tools {
         maven 'mymaven' // This should match the name in Global Tool Configuration
         jdk 'myjdk'     // This should match the name in Global Tool Configuration
-        git 'mygit'
-    }
+          }
     parameters {
         string(name: 'ENV', defaultValue: 'DEV', description: 'COMPILER ENV?')
         booleanParam(name: 'EXECUTETEST', defaultValue: true, description: 'EXECUTE this value')
