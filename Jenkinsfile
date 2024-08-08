@@ -1,6 +1,9 @@
 pipeline {
     agent {label 'linux_slave2'}
-    parameters {
+ tools {
+        maven 'apache-maven-3.0.1' 
+         jdk 'jdk-17' 
+    }    parameters {
                 string(name: 'ENV', defaultValue: 'DEV', description: 'COMPILER ENV?')
                         booleanParam(name: 'EXECUTETEST', defaultValue: true, description: 'EXECUTE this value')
                                 choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
@@ -13,8 +16,9 @@ pipeline {
         stage('Compile') {
             steps {
             script{
-               echo "compiling teh code"
+               
                echo "compiling in ${params.ENV}"}
+               sh 'mvn compile'
             }
         }
         stage('UnitTest') {
@@ -24,12 +28,17 @@ pipeline {
                 }
               }
             steps {
-               echo "Test teh code"
+
+               script
+               {echo "Test teh code"
+               sh 'mvn test'}
             }
         }
         stage('Package') {
             steps {
+                script{
                echo "Package teh code"
+               sh 'mvn package'}
             }
         }
          stage('Example') {
