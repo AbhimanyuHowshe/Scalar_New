@@ -35,7 +35,7 @@ pipeline {
          stage('Example') {
             input {
                 message "Should we continue?"
-                ok "Yes, should."
+                ok "Yes, should be."
                 submitter "alice,bob"
                 parameters {
                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
